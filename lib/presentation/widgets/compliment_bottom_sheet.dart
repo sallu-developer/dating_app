@@ -281,8 +281,8 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                         context: context,
                         barrierColor: Colors.black.withOpacity(0.3),
                         builder: (context) {
-                          // Auto dismiss after 1.5 seconds
-                          Future.delayed(const Duration(milliseconds: 1500), () {
+                          // Auto dismiss after 2.5 seconds so they have time to click the button
+                          Future.delayed(const Duration(milliseconds: 2500), () {
                             if (Navigator.of(context).canPop()) {
                               Navigator.of(context).pop();
                             }
@@ -291,13 +291,46 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                           return Dialog(
                             backgroundColor: Colors.transparent,
                             elevation: 0,
-                            child: Center(
-                              child: Lottie.asset(
-                                'assets/Rose.json',
-                                width: 250,
-                                height: 250,
-                                fit: BoxFit.contain,
-                              ),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                Lottie.asset(
+                                  'assets/Rose.json',
+                                  width: 250,
+                                  height: 250,
+                                  fit: BoxFit.contain,
+                                ),
+                                const SizedBox(height: 20),
+                                SizedBox(
+                                  width: 200,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.of(context).pop(); // close dialog
+                                      navigator.push(MaterialPageRoute(builder: (_) => ChatScreen(
+                                        userName: widget.userName,
+                                        userImageUrl: widget.userImageUrl,
+                                      )));
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: const Color(0xFFDF4A70),
+                                      padding: const EdgeInsets.symmetric(vertical: 14),
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      elevation: 5,
+                                      shadowColor: Colors.pink.withOpacity(0.5),
+                                    ),
+                                    child: const Text(
+                                      'View Chat',
+                                      style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           );
                         },
