@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 import 'package:dating_app/presentation/pages/chat_screen.dart';
 import 'package:dating_app/presentation/widgets/compliment_ideas_sheet.dart';
 
@@ -273,34 +274,78 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                   onTap: () {
                     if (showRedSendButton) {
                       final navigator = Navigator.of(context);
-                      final messenger = ScaffoldMessenger.of(context);
-
-                      navigator.pop();
                       
-                      messenger.showSnackBar(
-                        SnackBar(
-                          backgroundColor: const Color(0xFF2C2424),
-                          behavior: SnackBarBehavior.floating,
-                          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
-                          margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-                          padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-                          elevation: 0,
-                          content: InkWell(
-                            onTap: () {
-                              messenger.hideCurrentSnackBar();
-                              navigator.push(MaterialPageRoute(builder: (_) => ChatScreen(
-                                userName: widget.userName,
-                                userImageUrl: widget.userImageUrl,
-                              )));
-                            },
-                            child: const Text(
-                              '🌹 Rose + 💬 Comment sent! ✨ Opening chat...',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.w500),
+                      navigator.pop(); // Close bottom sheet
+                      
+                      showDialog(
+                        context: context,
+                        builder: (context) {
+                          return Dialog(
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
+                            backgroundColor: Colors.white,
+                            child: Padding(
+                              padding: const EdgeInsets.all(24.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Lottie.asset(
+                                    'assets/Rose.json',
+                                    width: 150,
+                                    height: 150,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  const SizedBox(height: 16),
+                                  const Text(
+                                    'Sent Successfully! ✨',
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black87,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    'You sent a Rose and a message to ${widget.userName}.',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 14,
+                                      color: Colors.grey.shade600,
+                                    ),
+                                  ),
+                                  const SizedBox(height: 24),
+                                  SizedBox(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Navigator.of(context).pop(); // close dialog
+                                        navigator.push(MaterialPageRoute(builder: (_) => ChatScreen(
+                                          userName: widget.userName,
+                                          userImageUrl: widget.userImageUrl,
+                                        )));
+                                      },
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: const Color(0xFFDF4A70),
+                                        padding: const EdgeInsets.symmetric(vertical: 14),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius: BorderRadius.circular(16),
+                                        ),
+                                        elevation: 0,
+                                      ),
+                                      child: const Text(
+                                        'View Chat',
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
-                          ),
-                          duration: const Duration(seconds: 3),
-                        ),
+                          );
+                        },
                       );
                     }
                   },
