@@ -3,6 +3,7 @@ import 'package:dating_app/presentation/pages/home_screen.dart';
 import 'package:dating_app/presentation/pages/date_now_screen.dart';
 import 'package:dating_app/presentation/pages/messages_list_screen.dart';
 import 'package:dating_app/presentation/pages/admirers_screen.dart';
+import 'package:dating_app/presentation/pages/events_screen.dart';
 import 'package:dating_app/presentation/widgets/custom_bottom_nav.dart';
 
 class MainScreen extends StatefulWidget {
@@ -20,7 +21,7 @@ class _MainScreenState extends State<MainScreen> {
     const DateNowScreen(),
     const AdmirersScreen(),
     const MessagesListScreen(),
-    const Scaffold(body: Center(child: Text('Events'))),
+    const EventsScreen(),
   ];
 
   @override
