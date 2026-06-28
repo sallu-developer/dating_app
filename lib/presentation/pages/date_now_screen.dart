@@ -153,13 +153,53 @@ class _DateNowScreenState extends State<DateNowScreen> {
   }
 
   Widget _buildMainCard() {
+    String imageUrl;
+    String locationName;
+    String title;
+    String subtitle;
+    String timeLabel;
+    String activityLabel;
+    String matchLabel;
+    String hostName;
+    String hostAge;
+
+    if (selectedTab == 'Tomorrow') {
+      imageUrl = 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?auto=format&fit=crop&w=800&q=80';
+      locationName = 'Third Wave Coffee, Bandra';
+      title = 'Coffee & Deep Conversations';
+      subtitle = 'Looking for someone to explore new cafes ☕';
+      timeLabel = '11:00 AM';
+      activityLabel = 'Coffee';
+      matchLabel = '92% match';
+      hostName = 'Rohan';
+      hostAge = '27';
+    } else if (selectedTab == 'Weekend') {
+      imageUrl = 'https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=800&q=80';
+      locationName = 'SGNP, Borivali';
+      title = 'Morning Trek & Nature';
+      subtitle = 'Early weekend escape from the city 🌿';
+      timeLabel = '6:30 AM';
+      activityLabel = 'Trekking';
+      matchLabel = '85% match';
+      hostName = 'Karan';
+      hostAge = '26';
+    } else {
+      imageUrl = 'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80';
+      locationName = 'Olive Bar, Mahalaxmi';
+      title = 'Pasta & Honest Chats';
+      subtitle = 'Foodie looking for a dinner buddy 🍝';
+      timeLabel = '8:30 PM';
+      activityLabel = 'Dinner';
+      matchLabel = '88% match';
+      hostName = 'Ananya';
+      hostAge = '25';
+    }
+
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(24),
-        image: const DecorationImage(
-          image: NetworkImage(
-            'https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=800&q=80',
-          ),
+        image: DecorationImage(
+          image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
         ),
         boxShadow: [
@@ -207,12 +247,12 @@ class _DateNowScreenState extends State<DateNowScreen> {
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Row(
-                    children: const [
-                      Icon(Icons.circle, color: Colors.white, size: 8),
-                      SizedBox(width: 4),
+                    children: [
+                      const Icon(Icons.circle, color: Colors.white, size: 8),
+                      const SizedBox(width: 4),
                       Text(
-                        'Live • Olive Bar, Mahalaxmi',
-                        style: TextStyle(
+                        'Live • $locationName',
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
@@ -261,47 +301,26 @@ class _DateNowScreenState extends State<DateNowScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  children: [
-                    _buildInfoPill(
-                      Icons.calendar_today,
-                      'TODAY',
-                      Colors.pink.shade400,
-                      Colors.pink.shade400,
-                    ),
-                    const SizedBox(width: 8),
-                    _buildInfoPill(
-                      Icons.access_time,
-                      '8:30 PM',
-                      Colors.white,
-                      Colors.white.withOpacity(0.3),
-                    ),
-                    const SizedBox(width: 8),
-                    _buildInfoPill(
-                      Icons.restaurant_menu,
-                      'Dinner',
-                      Colors.white,
-                      Colors.white.withOpacity(0.3),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 6),
-                const Text(
-                  'Pasta & Honest Chats',
-                  style: TextStyle(
+                _buildInfoTags(timeLabel, activityLabel),
+                const SizedBox(height: 12),
+                Text(
+                  title,
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 2),
+                const SizedBox(height: 4),
                 Row(
                   children: [
-                    Text(
-                      'Foodie looking for a dinner buddy 🍝',
-                      style: TextStyle(
-                        color: Colors.grey.shade300,
-                        fontSize: 14,
+                    Expanded(
+                      child: Text(
+                        subtitle,
+                        style: TextStyle(
+                          color: Colors.white.withOpacity(0.9),
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                     const Spacer(),
@@ -319,73 +338,10 @@ class _DateNowScreenState extends State<DateNowScreen> {
                     ),
                   ],
                 ),
-                const SizedBox(height: 0),
-
-                Row(
-                  children: [
-                    _buildTag('💜', '88% match'),
-                    const SizedBox(width: 8),
-                    _buildTag('👥', 'Just 1'),
-                    const SizedBox(width: 8),
-                    _buildTag('🤝', "I'll pay"),
-                  ],
-                ),
-                const SizedBox(height: 10),
-
-                Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(color: Colors.white.withOpacity(0.2)),
-                  ),
-                  child: Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 20,
-                        backgroundImage: NetworkImage(
-                          'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                        ),
-                      ),
-                      const SizedBox(width: 12),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: const [
-                              Text(
-                                'Ananya, 25',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 16,
-                                ),
-                              ),
-                              SizedBox(width: 4),
-                              Icon(Icons.check, color: Colors.white, size: 16),
-                            ],
-                          ),
-                          Text(
-                            'she/her • Foodie',
-                            style: TextStyle(
-                              color: Colors.grey.shade400,
-                              fontSize: 12,
-                            ),
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Text(
-                        'Profile →',
-                        style: TextStyle(
-                          color: Colors.pink.shade200,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                const SizedBox(height: 16),
+                _buildMatchTags(matchLabel),
+                const SizedBox(height: 16),
+                _buildProfileRow(hostName, hostAge),
               ],
             ),
           ),
@@ -394,34 +350,109 @@ class _DateNowScreenState extends State<DateNowScreen> {
     );
   }
 
-  Widget _buildInfoPill(
-    IconData icon,
-    String text,
-    Color textColor,
-    Color bgColor,
-  ) {
+  Widget _buildInfoTags(String timeLabel, String activityLabel) {
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+          decoration: BoxDecoration(
+            color: Colors.pink.shade500,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Row(
+            children: [
+              const Icon(Icons.calendar_today, color: Colors.white, size: 12),
+              const SizedBox(width: 4),
+              Text(
+                selectedTab.toUpperCase(),
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 10,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+        ),
+        const SizedBox(width: 8),
+        _buildTagWithIcon(Icons.access_time, timeLabel),
+        const SizedBox(width: 8),
+        _buildTagWithIcon(Icons.restaurant, activityLabel),
+      ],
+    );
+  }
+
+  Widget _buildMatchTags(String matchLabel) {
+    return Row(
+      children: [
+        _buildDarkTag(Icons.favorite, matchLabel, Colors.purpleAccent),
+        const SizedBox(width: 8),
+        _buildDarkTag(Icons.people, 'Just 1', Colors.blueAccent),
+        const SizedBox(width: 8),
+        _buildDarkTag(Icons.payment, "I'll pay", Colors.greenAccent),
+      ],
+    );
+  }
+
+  Widget _buildProfileRow(String hostName, String hostAge) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: bgColor,
-        borderRadius: BorderRadius.circular(16),
+        color: Colors.black.withOpacity(0.5),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Colors.white.withOpacity(0.1)),
       ),
       child: Row(
         children: [
-          Icon(
-            icon,
-            color: textColor == Colors.pink.shade400 ? Colors.white : textColor,
-            size: 14,
+          Container(
+            width: 40,
+            height: 40,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(color: Colors.pink.shade300, width: 2),
+              image: const DecorationImage(
+                image: NetworkImage(
+                  'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80',
+                ),
+                fit: BoxFit.cover,
+              ),
+            ),
           ),
-          const SizedBox(width: 4),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    Text(
+                      '$hostName, $hostAge',
+                      style: const TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    const Icon(Icons.check_circle, color: Colors.blue, size: 16),
+                  ],
+                ),
+                Text(
+                  'Verified Host',
+                  style: TextStyle(
+                    color: Colors.grey.shade400,
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
+          ),
           Text(
-            text,
+            'Profile →',
             style: TextStyle(
-              color: textColor == Colors.pink.shade400
-                  ? Colors.white
-                  : textColor,
-              fontSize: 11,
+              color: Colors.pink.shade200,
               fontWeight: FontWeight.bold,
+              fontSize: 13,
             ),
           ),
         ],
@@ -429,7 +460,27 @@ class _DateNowScreenState extends State<DateNowScreen> {
     );
   }
 
-  Widget _buildTag(String emoji, String text) {
+  Widget _buildTagWithIcon(IconData icon, String text) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+      decoration: BoxDecoration(
+        color: Colors.white.withOpacity(0.2),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white, size: 12),
+          const SizedBox(width: 4),
+          Text(
+            text,
+            style: const TextStyle(color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildDarkTag(IconData icon, String text, Color iconColor) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
@@ -439,7 +490,7 @@ class _DateNowScreenState extends State<DateNowScreen> {
       ),
       child: Row(
         children: [
-          Text(emoji, style: const TextStyle(fontSize: 12)),
+          Icon(icon, color: iconColor, size: 14),
           const SizedBox(width: 4),
           Text(
             text,
