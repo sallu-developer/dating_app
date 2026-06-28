@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:dating_app/presentation/pages/home_screen.dart';
 import 'package:dating_app/presentation/pages/date_now_screen.dart';
 import 'package:dating_app/presentation/pages/messages_list_screen.dart';
+import 'package:dating_app/presentation/pages/admirers_screen.dart';
 import 'package:dating_app/presentation/widgets/custom_bottom_nav.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,7 +18,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _pages = [
     const HomeScreen(hideBottomNav: true),
     const DateNowScreen(),
-    const Scaffold(body: Center(child: Text('Admirers'))),
+    const AdmirersScreen(),
     const MessagesListScreen(),
     const Scaffold(body: Center(child: Text('Events'))),
   ];
