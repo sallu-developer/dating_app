@@ -22,7 +22,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         final users = await getUsersUseCase();
         emit(HomeLoaded(users));
       } catch (e) {
-        // Keeps the old state or show error
         emit(HomeError(e.toString()));
       }
     });

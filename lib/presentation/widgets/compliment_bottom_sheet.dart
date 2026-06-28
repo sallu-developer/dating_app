@@ -61,17 +61,16 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
         left: 24,
         right: 24,
         top: 12,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 24, // adjust for keyboard
+        bottom: MediaQuery.of(context).viewInsets.bottom + 24,
       ),
       decoration: const BoxDecoration(
-        color: Color(0xFFF2EFE9), // Cream background
+        color: Color(0xFFF2EFE9),
         borderRadius: BorderRadius.vertical(top: Radius.circular(24)),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Drag handle
           Center(
             child: Container(
               width: 40,
@@ -84,7 +83,6 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
           ),
           const SizedBox(height: 24),
 
-          // Header
           const Text(
             'COMPLIMENTING',
             style: TextStyle(
@@ -105,7 +103,6 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
           ),
           const SizedBox(height: 16),
 
-          // Stats row
           Row(
             children: [
               _buildStatPill('💬', '3 comments'),
@@ -117,7 +114,6 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
           ),
           const SizedBox(height: 16),
 
-          // Text Field area
           Container(
             decoration: BoxDecoration(
               color: Colors.white,
@@ -182,7 +178,6 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
           ),
           const SizedBox(height: 16),
 
-          // Action buttons
           Row(
             children: [
               Expanded(
@@ -254,7 +249,6 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
           ),
           const SizedBox(height: 8),
 
-          // Bottom buttons
           Row(
             children: [
               Container(
@@ -281,12 +275,11 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                       final navigator = Navigator.of(context);
                       final messenger = ScaffoldMessenger.of(context);
 
-                      navigator.pop(); // Close the bottom sheet
+                      navigator.pop();
                       
-                      // Show the snackbar
                       messenger.showSnackBar(
                         SnackBar(
-                          backgroundColor: const Color(0xFF2C2424), // Dark brownish-black
+                          backgroundColor: const Color(0xFF2C2424),
                           behavior: SnackBarBehavior.floating,
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
                           margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
@@ -314,7 +307,7 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                   child: Container(
                     height: 56,
                     decoration: BoxDecoration(
-                      color: showRedSendButton ? const Color(0xFFDF4A70) : Colors.pink.shade100, // Very light pink or dark pink
+                      color: showRedSendButton ? const Color(0xFFDF4A70) : Colors.pink.shade100,
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: showRedSendButton ? [
                         BoxShadow(color: const Color(0xFFDF4A70).withOpacity(0.4), blurRadius: 10, offset: const Offset(0, 4))

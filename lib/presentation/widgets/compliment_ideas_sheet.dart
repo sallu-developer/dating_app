@@ -52,12 +52,11 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F6F2), // Lighter creamy background
+      backgroundColor: const Color(0xFFF9F6F2),
       body: SafeArea(
         bottom: false,
         child: Stack(
           children: [
-            // Background Gradient at the top
             Positioned(
               top: 0,
               left: 0,
@@ -69,8 +68,8 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: [
-                    const Color(0xFFFFE6EE).withOpacity(0.8), // vibrant pale pink
-                    const Color(0xFFEBE6FF).withOpacity(0.5), // pale lavender
+                    const Color(0xFFFFE6EE).withOpacity(0.8),
+                    const Color(0xFFEBE6FF).withOpacity(0.5),
                     const Color(0xFFF9F6F2).withOpacity(0.0),
                   ],
                   stops: const [0.0, 0.4, 1.0],
@@ -81,7 +80,6 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
           
           Column(
             children: [
-              // Header with back button
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 16, right: 16),
                 child: Row(
@@ -101,7 +99,6 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
                 ),
               ),
 
-              // Title Section
               const SizedBox(height: 20),
               Container(
                 width: 70,
@@ -116,14 +113,11 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
                   child: Stack(
                     alignment: Alignment.center,
                     children: [
-                      // Thick white interior to block the background
                       const Padding(
                         padding: EdgeInsets.only(bottom: 6),
                         child: Icon(Icons.chat_bubble, size: 40, color: Colors.white),
                       ),
-                      // Outline icon
                       const Icon(Icons.chat_bubble_outline, size: 48, color: Colors.black87),
-                      // The three dots inside
                       Padding(
                         padding: const EdgeInsets.only(bottom: 6),
                         child: Icon(Icons.more_horiz, size: 24, color: Colors.grey.shade600),
@@ -144,7 +138,6 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
               ),
               const SizedBox(height: 24),
 
-              // Categories List
               SizedBox(
                 height: 44,
                 child: ListView.builder(
@@ -183,7 +176,6 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
               ),
               const SizedBox(height: 20),
 
-              // Compliments List
               Expanded(
                 child: ListView.builder(
                   padding: const EdgeInsets.only(left: 16, right: 16, bottom: 100),
@@ -229,7 +221,6 @@ class _ComplimentIdeasSheetState extends State<ComplimentIdeasSheet> {
             ],
           ),
 
-          // Bottom sticky button
           Positioned(
             bottom: 0,
             left: 0,

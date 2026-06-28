@@ -13,9 +13,8 @@ class _DateNowScreenState extends State<DateNowScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // We add bottom padding to avoid overlapping the bottom nav bar
     return Scaffold(
-      backgroundColor: const Color(0xFFF2EFE9), // Beige background
+      backgroundColor: const Color(0xFFF2EFE9),
       body: SafeArea(
         bottom: false,
         child: Padding(
@@ -30,7 +29,7 @@ class _DateNowScreenState extends State<DateNowScreen> {
               Expanded(child: _buildMainCard()),
               const SizedBox(height: 16),
               _buildActionButtons(),
-              const SizedBox(height: 110), // Space for bottom nav bar
+              const SizedBox(height: 110),
             ],
           ),
         ),
@@ -172,7 +171,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
       ),
       child: Stack(
         children: [
-          // Gradient Overlay to make text readable
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -192,7 +190,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
             ),
           ),
 
-          // Top Badges
           Positioned(
             top: 16,
             left: 16,
@@ -256,7 +253,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
             ),
           ),
 
-          // Bottom Content
           Positioned(
             bottom: 20,
             left: 16,
@@ -264,7 +260,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Info Pills (TODAY, Time, Dinner)
                 Row(
                   children: [
                     _buildInfoPill(
@@ -290,7 +285,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
                   ],
                 ),
                 const SizedBox(height: 6),
-                // Title & Subtitle
                 const Text(
                   'Pasta & Honest Chats',
                   style: TextStyle(
@@ -326,7 +320,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
                 ),
                 const SizedBox(height: 0),
 
-                // Tags
                 Row(
                   children: [
                     _buildTag('💜', '88% match'),
@@ -338,7 +331,6 @@ class _DateNowScreenState extends State<DateNowScreen> {
                 ),
                 const SizedBox(height: 10),
 
-                // Profile Strip
                 Container(
                   padding: const EdgeInsets.all(12),
                   decoration: BoxDecoration(

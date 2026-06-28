@@ -27,13 +27,11 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       body: Stack(
         children: [
-          // The current active page
           IndexedStack(
             index: _currentIndex,
             children: _pages,
           ),
           
-          // The shared bottom navigation bar
           Positioned(
             bottom: 0,
             left: 0,

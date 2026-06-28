@@ -20,7 +20,6 @@ class UserDetailsSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Sticky tags below image
           Wrap(
             spacing: 10,
             runSpacing: 10,
@@ -32,7 +31,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 28),
           
-          // ABOUT Section
           const Text(
             'ABOUT',
             style: TextStyle(
@@ -53,7 +51,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           
-          // THE BASICS Section
           const Text(
             'THE BASICS',
             style: TextStyle(
@@ -101,7 +98,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // Video Section
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -111,7 +107,7 @@ class UserDetailsSection extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                    image: CachedNetworkImageProvider(user.imageUrl), // Reusing user image as thumbnail
+                    image: CachedNetworkImageProvider(user.imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -154,7 +150,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
           
-          // Prompt Section
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -194,7 +189,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // CAREER & AMBITION Section
           const Text(
             'CAREER & AMBITION',
             style: TextStyle(
@@ -263,21 +257,19 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // Bottom Image Card
           Container(
-            height: 380, // Made it taller
+            height: 380,
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(user.imageUrl), // Using the same image
+                image: CachedNetworkImageProvider(user.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 32),
 
-          // Second Prompt Section
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -317,7 +309,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // INTERESTS & HOBBIES Section
           const Text(
             'INTERESTS & HOBBIES',
             style: TextStyle(
@@ -335,7 +326,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // LIFESTYLE Section
           const Text(
             'LIFESTYLE',
             style: TextStyle(
@@ -385,7 +375,6 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // DATING GOAL Card
           Container(
             width: double.infinity,
             padding: const EdgeInsets.all(24),
@@ -422,21 +411,19 @@ class UserDetailsSection extends StatelessWidget {
           ),
           const SizedBox(height: 32),
 
-          // Third Image Card
           Container(
             height: 380,
             width: double.infinity,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
-                image: CachedNetworkImageProvider(user.imageUrl), // Reusing same image
+                image: CachedNetworkImageProvider(user.imageUrl),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           const SizedBox(height: 32),
 
-          // Third Prompt Section
           Stack(
             clipBehavior: Clip.none,
             children: [
@@ -500,7 +487,7 @@ class UserDetailsSection extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.red.shade50,
           shape: BoxShape.circle,
-          border: Border.all(color: Colors.red.shade100, width: 0.5), // Almost invisible border
+          border: Border.all(color: Colors.red.shade100, width: 0.5),
         ),
         child: const Text('🌹', style: TextStyle(fontSize: 20)),
       ),

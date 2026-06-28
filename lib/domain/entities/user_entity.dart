@@ -8,7 +8,6 @@ class UserEntity extends Equatable {
   final String city;
   final String state;
   final DateTime dob;
-  // Mocked fields for UI based on design
   final int distanceKm;
   final int matchPercentage;
   final int trustPercentage;
@@ -18,7 +17,6 @@ class UserEntity extends Equatable {
   final String relationshipIntent;
   final bool isVerified;
   
-  // New detailed fields
   final String about;
   final String loveLanguage;
   final String loveLanguageSub;
@@ -29,7 +27,6 @@ class UserEntity extends Equatable {
   final String motherTongue;
   final String communicationStyle;
   
-  // Extra sections
   final String videoDuration;
   final String promptQuestion;
   final String promptAnswer;

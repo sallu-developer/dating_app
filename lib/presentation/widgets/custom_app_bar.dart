@@ -13,7 +13,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Stack(
           alignment: Alignment.center,
           children: [
-            // Left menu button
             Align(
               alignment: Alignment.centerLeft,
               child: Container(
@@ -27,7 +26,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
             ),
-            // Center "Dally 25" chip
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               decoration: BoxDecoration(
@@ -53,7 +51,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ],
               ),
             ),
-            // Right icons
             Align(
               alignment: Alignment.centerRight,
               child: Row(

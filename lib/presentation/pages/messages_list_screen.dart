@@ -6,7 +6,7 @@ class MessagesListScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF9F7F4), // Light cream background
+      backgroundColor: const Color(0xFFF9F7F4),
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -14,7 +14,7 @@ class MessagesListScreen extends StatelessWidget {
             _buildAppBar(),
             Expanded(
               child: ListView(
-                padding: const EdgeInsets.only(bottom: 100), // Space for bottom nav
+                padding: const EdgeInsets.only(bottom: 100),
                 children: [
                   _buildSearchBar(),
                   const SizedBox(height: 20),
@@ -313,7 +313,6 @@ class MessagesListScreen extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Avatar
           Stack(
             children: [
               CircleAvatar(
@@ -337,7 +336,6 @@ class MessagesListScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(width: 12),
-          // Content
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -402,7 +400,6 @@ class MessagesListScreen extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(height: 12),
-                // Progress Bar row
                 Row(
                   children: [
                     Expanded(

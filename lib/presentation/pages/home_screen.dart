@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2EFE9), // Keep the beige background consistent
+      backgroundColor: const Color(0xFFF2EFE9),
       appBar: const CustomAppBar(),
       body: Stack(
         children: [
@@ -53,9 +53,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     return SingleChildScrollView(
                       child: Column(
                         children: [
-                          // The swipeable image deck taking full available height minus bottom nav
                           SizedBox(
-                            height: constraints.maxHeight - 95, // Leaves space for bottom nav
+                            height: constraints.maxHeight - 95,
                             child: CardSwiper(
                               controller: controller,
                               cardsCount: state.users.length,
@@ -72,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               onEnd: () {
                                 context.read<HomeBloc>().add(RefreshUsersEvent());
                                 setState(() {
-                                  _currentIndex = 0; // Reset for new batch
+                                  _currentIndex = 0;
                                 });
                               },
                               cardBuilder: (context, index) {
@@ -81,7 +80,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           
-                          // The details below that update when swiped
                           AnimatedSwitcher(
                             duration: const Duration(milliseconds: 300),
                             child: UserDetailsSection(
@@ -90,10 +88,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           ),
                           
-                          // Padding for bottom nav
                           const SizedBox(height: 100), 
                           
-                          // Preload the next image secretly so it doesn't show a loading indicator on swipe
                           if (_currentIndex + 1 < state.users.length)
                             Offstage(
                               offstage: true,

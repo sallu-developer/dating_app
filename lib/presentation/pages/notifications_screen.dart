@@ -14,7 +14,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2EFE9), // Creamy background matching the app
+      backgroundColor: const Color(0xFFF2EFE9),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -38,7 +38,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   ),
                   const SizedBox(height: 12),
                   
-                  // Dev - Rose
                   _buildNotificationCard(
                     context: context,
                     avatarUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
@@ -51,7 +50,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     isUnread: true,
                   ),
                   
-                  // Arjun - Compliment
                   _buildNotificationCard(
                     context: context,
                     avatarUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
@@ -63,7 +61,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     isUnread: false,
                   ),
 
-                  // Aanya - Match
                   _buildNotificationCard(
                     context: context,
                     avatarUrl: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
@@ -77,7 +74,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     isUnread: true,
                   ),
 
-                  // Elena - Message
                   _buildNotificationCard(
                     context: context,
                     avatarUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&q=80',
@@ -89,10 +85,9 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                     isUnread: true,
                   ),
 
-                  // Kabir - Date Request
                   _buildNotificationCard(
                     context: context,
-                    avatarUrl: null, // Will use calendar icon
+                    avatarUrl: null,
                     badgeType: 'none',
                     title: 'Kabir',
                     actionText: 'approved your date request',
@@ -254,7 +249,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // Avatar and Badge
           SizedBox(
             width: 50,
             height: 50,
@@ -294,12 +288,10 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
           ),
           const SizedBox(width: 12),
           
-          // Content
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // Title and Unread Dot
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -338,7 +330,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 ),
                 const SizedBox(height: 6),
                 
-                // Message
                 Text(
                   message,
                   style: TextStyle(
@@ -349,7 +340,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                 ),
                 const SizedBox(height: 8),
                 
-                // Time
                 Text(
                   time,
                   style: TextStyle(
@@ -359,7 +349,6 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
                   ),
                 ),
                 
-                // Action Button
                 if (buttonText != null) ...[
                   const SizedBox(height: 12),
                   GestureDetector(

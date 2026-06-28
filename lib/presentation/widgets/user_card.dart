@@ -15,7 +15,7 @@ class UserCard extends StatelessWidget {
       height: double.infinity,
       margin: EdgeInsets.zero,
       decoration: BoxDecoration(
-        color: const Color(0xFFF2EFE9), // Light background color for the scrollable area
+        color: const Color(0xFFF2EFE9),
         borderRadius: BorderRadius.circular(32),
         boxShadow: const [
           BoxShadow(color: Colors.black26, blurRadius: 10, offset: Offset(0, 5)),
@@ -27,13 +27,10 @@ class UserCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              // 1. Reusable Image Section Component
               UserImageSection(user: user),
               
-              // 2. Reusable Details Section Component
               UserDetailsSection(user: user),
 
-              // Add extra space at the bottom so content isn't hidden behind the bottom nav bar
               const SizedBox(height: 100),
             ],
           ),

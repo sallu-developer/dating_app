@@ -63,7 +63,6 @@ class UserModel extends UserEntity {
 
     final random = Random();
     
-    // Mocking fields to match the UI requirements
     final professions = ['Fashion Designer', 'Content Creator', 'Software Engineer', 'Photographer', 'Artist'];
     final relationshipIntents = ['Serious relationship', 'Casual dating', 'Not sure yet', 'Marriage'];
     final replyTimes = ['~5m Reply', '~1h Reply', '~10m Reply'];
@@ -92,7 +91,6 @@ class UserModel extends UserEntity {
       {'q': 'First round is on me if...', 'a': 'You can beat me at Mario Kart.'},
       {'q': 'We\'ll get along if...', 'a': 'You can debate me for an hour and still want dessert after.'},
     ];
-    // Pick three unique prompts
     final shuffledPrompts = List.of(prompts)..shuffle();
     final selectedPrompt1 = shuffledPrompts[0];
     final selectedPrompt2 = shuffledPrompts[1];
@@ -124,9 +122,8 @@ class UserModel extends UserEntity {
       'Gaming', 'Movies', 'Art', 'Dogs', 'Cats', 'Fitness'
     ];
     final shuffledInterests = List.of(allInterests)..shuffle();
-    final userInterests = shuffledInterests.take(random.nextInt(3) + 6).toList(); // 6 to 8 interests
+    final userInterests = shuffledInterests.take(random.nextInt(3) + 6).toList();
 
-    // Mocking lifestyle data
     final diets = ['Vegetarian', 'Vegan', 'Pescatarian', 'Anything'];
     final drinks = ['Socially', 'Never', 'Often'];
     final smokes = ['Non-smoker', 'Socially', 'Regularly'];

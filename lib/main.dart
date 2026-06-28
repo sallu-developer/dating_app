@@ -11,7 +11,6 @@ import 'package:dating_app/presentation/blocs/home/home_event.dart';
 import 'package:dating_app/presentation/pages/main_screen.dart';
 
 void main() {
-  // Simple Dependency Injection Setup
   final httpClient = http.Client();
   final remoteDataSource = UserRemoteDataSourceImpl(client: httpClient);
   final userRepository = UserRepositoryImpl(remoteDataSource: remoteDataSource);

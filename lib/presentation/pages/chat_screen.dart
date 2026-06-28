@@ -13,7 +13,7 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF4F1EC), // Cream background
+      backgroundColor: const Color(0xFFF4F1EC), 
       body: SafeArea(
         child: Column(
           children: [
@@ -30,7 +30,6 @@ class ChatScreen extends StatelessWidget {
                   _buildSafetyAndMapCard(),
                   const SizedBox(height: 24),
                   
-                  // Chat History
                   Center(
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
@@ -89,7 +88,6 @@ class ChatScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 12),
-          // Avatar
           Stack(
             children: [
               CircleAvatar(
@@ -112,7 +110,6 @@ class ChatScreen extends StatelessWidget {
             ],
           ),
           const SizedBox(width: 12),
-          // Name and Status
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -151,7 +148,6 @@ class ChatScreen extends StatelessWidget {
               ],
             ),
           ),
-          // Action Buttons
           _buildAppbarIconButton(Icons.call_outlined, Colors.pink.shade400),
           const SizedBox(width: 8),
           _buildAppbarIconButton(Icons.videocam_outlined, Colors.pink.shade400),
@@ -201,7 +197,7 @@ class ChatScreen extends StatelessWidget {
           ),
           child: FractionallySizedBox(
             alignment: Alignment.centerLeft,
-            widthFactor: 0.7, // Level 5
+            widthFactor: 0.7, 
             child: Container(
               decoration: BoxDecoration(
                 color: Colors.pink.shade300,
@@ -234,7 +230,6 @@ class ChatScreen extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Row(
         children: [
-          // Gifts
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
             decoration: BoxDecoration(
@@ -263,7 +258,6 @@ class ChatScreen extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           
-          // Compliments
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
@@ -281,7 +275,6 @@ class ChatScreen extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           
-          // Date Invites
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             decoration: BoxDecoration(
@@ -305,7 +298,6 @@ class ChatScreen extends StatelessWidget {
   Widget _buildSafetyAndMapCard() {
     return Column(
       children: [
-        // Safety tip
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -320,7 +312,6 @@ class ChatScreen extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 12),
-        // Map card
         Container(
           padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(
@@ -337,7 +328,6 @@ class ChatScreen extends StatelessWidget {
           ),
           child: Column(
             children: [
-              // Map representation
               Container(
                 height: 100,
                 width: double.infinity,
@@ -353,7 +343,6 @@ class ChatScreen extends StatelessWidget {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
-                    // Grid lines to look like map
                     CustomPaint(
                       size: const Size(double.infinity, 100),
                       painter: _GridPainter(),
@@ -374,7 +363,6 @@ class ChatScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 16),
-              // Buttons
               Row(
                 children: [
                   Expanded(
@@ -644,11 +632,9 @@ class _GridPainter extends CustomPainter {
       ..color = Colors.grey.withOpacity(0.1)
       ..strokeWidth = 1.0;
     
-    // Draw vertical lines
     for (double i = 0; i < size.width; i += 20) {
       canvas.drawLine(Offset(i, 0), Offset(i, size.height), paint);
     }
-    // Draw horizontal lines
     for (double i = 0; i < size.height; i += 20) {
       canvas.drawLine(Offset(0, i), Offset(size.width, i), paint);
     }
