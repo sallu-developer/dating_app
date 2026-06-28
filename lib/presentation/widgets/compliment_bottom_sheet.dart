@@ -279,69 +279,24 @@ class _ComplimentBottomSheetState extends State<ComplimentBottomSheet> {
                       
                       showDialog(
                         context: context,
+                        barrierColor: Colors.black.withOpacity(0.3),
                         builder: (context) {
+                          // Auto dismiss after 1.5 seconds
+                          Future.delayed(const Duration(milliseconds: 1500), () {
+                            if (Navigator.of(context).canPop()) {
+                              Navigator.of(context).pop();
+                            }
+                          });
+                          
                           return Dialog(
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
-                            backgroundColor: Colors.white,
-                            child: Padding(
-                              padding: const EdgeInsets.all(24.0),
-                              child: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Lottie.asset(
-                                    'assets/Rose.json',
-                                    width: 150,
-                                    height: 150,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  const SizedBox(height: 16),
-                                  const Text(
-                                    'Sent Successfully! ✨',
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black87,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 8),
-                                  Text(
-                                    'You sent a Rose and a message to ${widget.userName}.',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      fontSize: 14,
-                                      color: Colors.grey.shade600,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 24),
-                                  SizedBox(
-                                    width: double.infinity,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.of(context).pop(); // close dialog
-                                        navigator.push(MaterialPageRoute(builder: (_) => ChatScreen(
-                                          userName: widget.userName,
-                                          userImageUrl: widget.userImageUrl,
-                                        )));
-                                      },
-                                      style: ElevatedButton.styleFrom(
-                                        backgroundColor: const Color(0xFFDF4A70),
-                                        padding: const EdgeInsets.symmetric(vertical: 14),
-                                        shape: RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(16),
-                                        ),
-                                        elevation: 0,
-                                      ),
-                                      child: const Text(
-                                        'View Chat',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                            backgroundColor: Colors.transparent,
+                            elevation: 0,
+                            child: Center(
+                              child: Lottie.asset(
+                                'assets/Rose.json',
+                                width: 250,
+                                height: 250,
+                                fit: BoxFit.contain,
                               ),
                             ),
                           );
