@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dating_app/domain/entities/user_entity.dart';
+import 'package:dating_app/presentation/widgets/compliment_bottom_sheet.dart';
 
 class UserImageSection extends StatelessWidget {
   final UserEntity user;
@@ -80,10 +81,24 @@ class UserImageSection extends StatelessWidget {
           Positioned(
             bottom: 24,
             right: 16,
-            child: Container(
-              padding: const EdgeInsets.all(12),
-              decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-              child: const Text('🌹', style: TextStyle(fontSize: 24)),
+            child: GestureDetector(
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  isScrollControlled: true,
+                  backgroundColor: Colors.transparent,
+                  builder: (context) => ComplimentBottomSheet(
+                    title: 'Send a Rose to ${user.name}',
+                    userName: user.name,
+                    userImageUrl: user.imageUrl,
+                  ),
+                );
+              },
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
+                child: const Text('🌹', style: TextStyle(fontSize: 24)),
+              ),
             ),
           ),
         ],
