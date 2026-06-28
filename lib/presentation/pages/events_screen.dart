@@ -25,7 +25,7 @@ class _EventsScreenState extends State<EventsScreen> {
       'category': 'Meetups',
       'date': 'Sun, 25 Oct • 4:00 PM',
       'location': 'The Clay Company',
-      'image': 'https://images.unsplash.com/photo-1610756786016-0182dc7c126d?auto=format&fit=crop&w=800&q=80',
+      'image': 'https://images.unsplash.com/photo-1563298723-dcfebaa392e3?auto=format&fit=crop&w=800&q=80',
       'joined': 12,
     },
     {
@@ -33,7 +33,7 @@ class _EventsScreenState extends State<EventsScreen> {
       'category': 'Online',
       'date': 'Wed, 28 Oct • 9:00 PM',
       'location': 'Online Event',
-      'image': 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=800&q=80',
+      'image': 'https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&w=800&q=80',
       'joined': 150,
     },
     {
@@ -41,7 +41,7 @@ class _EventsScreenState extends State<EventsScreen> {
       'category': 'Meetups',
       'date': 'Sun, 1 Nov • 11:00 AM',
       'location': 'Bastian, Bandra',
-      'image': 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80',
+      'image': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80',
       'joined': 45,
     },
   ];
