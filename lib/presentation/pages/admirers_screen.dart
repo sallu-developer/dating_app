@@ -7,7 +7,7 @@ class AdmirersScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF2EFE9), // Same background as other screens
+      backgroundColor: const Color(0xFFF2EFE9), 
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

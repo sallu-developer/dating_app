@@ -127,7 +127,6 @@ class _EventsScreenState extends State<EventsScreen> {
   Widget _buildFilters() {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      showsHorizontalScrollIndicator: false,
       child: Row(
         children: filters.map((filter) {
           final isSelected = filter == selectedFilter;
@@ -219,7 +218,6 @@ class _EventsScreenState extends State<EventsScreen> {
                 color: Colors.white.withOpacity(0.2),
                 borderRadius: BorderRadius.circular(12),
                 border: Border.all(color: Colors.white.withOpacity(0.3)),
-                backdropFilter: const ColorFilter.mode(Colors.black12, BlendMode.srcOver), // Simple visual effect
               ),
               child: Text(
                 event['category'],
