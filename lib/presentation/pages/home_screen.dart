@@ -34,6 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFFF2EFE9),
       appBar: const CustomAppBar(),
+      drawer: _buildPremiumDrawer(),
       body: Stack(
         children: [
           BlocBuilder<HomeBloc, HomeState>(

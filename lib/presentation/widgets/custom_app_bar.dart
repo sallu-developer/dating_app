@@ -20,7 +20,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               ),
               child: IconButton(
                 icon: const Icon(Icons.menu, color: Colors.black87),
-                onPressed: () {},
+                onPressed: () {
+                  Scaffold.of(context).openDrawer();
+                },
               ),
             ),
             Flexible(
