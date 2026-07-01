@@ -20,7 +20,7 @@ class UserRemoteDataSourceImpl implements UserRemoteDataSource {
       final List results = jsonResponse['results'];
       return results.map((e) => UserModel.fromJson(e)).toList();
     } else {
-      throw Exception('Failed  to load users');
+      throw Exception('Failed too load users');
     }
   }
 }
